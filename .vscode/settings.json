@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+		"cstdio": "c",
+		"utilsfilesdescriptors.h": "c",
+		"characters.h": "c",
+		"parsormap.h": "c",
+		"stdarg.h": "c",
+		"types.h": "c",
+		"errorhandling.h": "c"
+	}
+}
