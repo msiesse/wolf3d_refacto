@@ -1,9 +1,15 @@
 #include "parsorMap.h"
 
-ParsorMapFile parsor(const int fd) {
-	ParsorMapFile	parsorMapFile;
+ParsorDataStocker parsor(const int fd) {
+	ParsorDataStocker	stocker;
+	byte				byteCursor;
+	FileReader			reader;
 
-	parsorMapFile = initParsorMapFile(fd);
-	launchParsingOfDimensions(&parsorMapFile);
-	return (parsorMapFile);
+	stocker = initParsorDataStocker(fd);
+	byteCursor = initByteCursorFromFile(stocker.fd);
+	reader = initFileReader(stocker.fd, byteCursor);
+	launchParsingOfDimensions(&stocker, &reader);
+	stocker.mapInBytes = initByteMatrice(stocker.numberOfRows, stocker.numberOfColumns);
+	launchParsingOfMapBytes(&stocker, &reader);
+	return (stocker);
 }

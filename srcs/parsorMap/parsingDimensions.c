@@ -1,12 +1,8 @@
 #include "parsorMap.h"
-#include <stdio.h>
 
-void launchParsingOfDimensions(ParsorMapFile *parsorMapFileAddr) {
-	byte		byteCursor;
-	FileReader	reader;
-
-	byteCursor = initByteCursorFromFile(parsorMapFileAddr->fd);
-	reader = initFileReader(parsorMapFileAddr->fd, byteCursor);
-	ignoreAllCommentsAndEmptyLines(&reader);
-	parsorMapFileAddr->numberOfLines = getNumberOfLines(&reader);
+void	launchParsingOfDimensions(ParsorDataStocker *parsorStockerAddr, FileReader *reader) {
+	ignoreCommentsAndEmptyLines(reader);
+	parsorStockerAddr->numberOfRows = getNumberOfRows(reader);
+	ignoreCommentsAndEmptyLines(reader);
+	parsorStockerAddr->numberOfColumns = getNumberOfColumns(reader);
 }

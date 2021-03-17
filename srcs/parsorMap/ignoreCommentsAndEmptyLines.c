@@ -18,7 +18,7 @@ static bool	hasToBeIgnored(byte byte) {
 	return (false);
 }
 
-void	ignoreAllCommentsAndEmptyLines(FileReader *reader) {
+void	ignoreCommentsAndEmptyLines(FileReader *reader) {
 	while (hasToBeIgnored(reader->byteCursor)) {
 		ignoreNextCommentOrEmptyLines(reader);
 	}

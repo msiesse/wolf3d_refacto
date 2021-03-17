@@ -10,7 +10,8 @@ TARGET = wolf3d
 VERBOSE = FALSE
 
 # Create the list of directories
-DIRS = main utils/filesDescriptors utils/types utils/characters utils/error parsorMap 
+DIRS = main utils/filesDescriptors utils/types utils/characters utils/error \
+		utils/matrices utils/memory utils/points parsorMap 
 SOURCEDIRS = $(foreach dir, $(DIRS), $(addprefix $(SOURCEDIR)/, $(dir)))
 TARGETDIRS = $(foreach dir, $(DIRS), $(addprefix $(BUILDDIR)/, $(dir)))
 
