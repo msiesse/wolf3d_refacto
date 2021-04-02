@@ -14,7 +14,6 @@ ByteMatrice	initByteMatrice(int rows, int columns) {
 	for (int currentRow = 0; currentRow < rows; currentRow++) {
 		if (!(byteMatrice.map[currentRow] = (byte*)malloc(columns * sizeof(byte)))) {
 			partialFreeByteMapTopDown(&byteMatrice, currentRow);
-			free(byteMatrice.map);
 			throwErrorAndExit(ERROR_ALLOC_COLUMNS, "byteMatrice.map[i] with i = ", currentRow);
 		}
 	}

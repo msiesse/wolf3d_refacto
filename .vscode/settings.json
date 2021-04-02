@@ -10,6 +10,8 @@
 		"stdbool.h": "c",
 		"memory.h": "c",
 		"matrice.h": "c",
-		"memoryhandler.h": "c"
+		"memoryhandler.h": "c",
+		"points.h": "c",
+		"stdlib.h": "c"
 	}
 }

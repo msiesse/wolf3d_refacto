@@ -1,4 +1,5 @@
 #include "parsorMap.h"
+#include <stdio.h>
 
 ParsorDataStocker parsor(const int fd) {
 	ParsorDataStocker	stocker;
@@ -11,5 +12,6 @@ ParsorDataStocker parsor(const int fd) {
 	launchParsingOfDimensions(&stocker, &reader);
 	stocker.mapInBytes = initByteMatrice(stocker.numberOfRows, stocker.numberOfColumns);
 	launchParsingOfMapBytes(&stocker, &reader);
+	launchParsingOfPlayer(&stocker, &reader);
 	return (stocker);
 }

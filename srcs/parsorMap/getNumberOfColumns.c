@@ -20,9 +20,10 @@ static bool	hasValidNumberOfColumns(int numberOfColumns) {
 int		getNumberOfColumns(FileReader *reader) {
 	DigitStocker	stocker;
 	int				numberOfColumns;
+	state			currentState;
 
 	initDigitStocker(&stocker);
-	storeDigitsInBuffer(reader, &stocker);
+	currentState = storeDigitsInBuffer(reader, &stocker);
 	numberOfColumns = atoi(stocker.buffer);
 	if (!hasValidNumberOfColumns(numberOfColumns)) {
 		errorValidationNumberOfColumns(numberOfColumns);

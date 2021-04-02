@@ -2,7 +2,7 @@
 #include "characters.h"
 
 static void ignoreCurrentLine(FileReader *reader) {
-	while (isStandardCharacter(reader->byteCursor) && !isNewLine(reader->byteCursor)) {
+	while (!isEndOfFile(reader->byteCursor) && !isNewLine(reader->byteCursor)) {
 		reader->byteCursor = readOneByte(reader->file);
 	}
 }

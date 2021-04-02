@@ -19,12 +19,14 @@ static bool	getCurrentDigit(FileReader *reader, DigitStocker *stocker) {
 	return (false);
 }
 
-void storeDigitsInBuffer(FileReader *reader, DigitStocker *stocker) {
+state	storeDigitsInBuffer(FileReader *reader, DigitStocker *stocker) {
 	while (!isEndOfFile(reader->byteCursor) && !isSpaceOrNewLine(reader->byteCursor)) {
 		if (getCurrentDigit(reader, stocker)) {
 			reader->byteCursor = readOneByte(reader->file);
 		} else {
 			errorGettingDigit(reader, stocker);
+			return (FAILURE);
 		}
 	}
+	return (SUCCESS);
 }

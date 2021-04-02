@@ -20,9 +20,10 @@ static bool	hasValidNumberOfRows(int numberOfRows) {
 int		getNumberOfRows(FileReader *reader) {
 	DigitStocker	stocker;
 	int				numberOfRows;
+	state			currentState;
 
 	initDigitStocker(&stocker);
-	storeDigitsInBuffer(reader, &stocker);
+	currentState = storeDigitsInBuffer(reader, &stocker);
 	numberOfRows = atoi(stocker.buffer);
 	if (!hasValidNumberOfRows(numberOfRows)) {
 		errorValidationNumberOfRows(numberOfRows);

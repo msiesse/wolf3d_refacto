@@ -1,6 +1,5 @@
 #include "parsorMap.h"
 #include "characters.h"
-#include "points.h"
 #include "errorHandling.h"
 
 static bool	isRightNumberOfColumns(int numberOfColumns, int expectedValueOfColumns) {

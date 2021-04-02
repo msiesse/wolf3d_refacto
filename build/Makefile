@@ -7,7 +7,7 @@ BUILDDIR := $(PROJDIR)/build
 TARGET = wolf3d
 
 # Decide whether the commands will be shwon or not
-VERBOSE = FALSE
+VERBOSE = TRUE
 
 # Create the list of directories
 DIRS = main utils/filesDescriptors utils/types utils/characters utils/error \
@@ -39,6 +39,7 @@ MLX_PATH = $(PROJDIR)/minilibx_macos
 PRINTF_PATH = $(PROJDIR)/libft/ft_printf
 LDLIBS = -L$(LIB_PATH) -lft
 LDLIBX = -L$(MLX_PATH) -lmlx
+SANITIZE= -fsanitize=address -g3
 
 # Redefine Includes
 
@@ -89,7 +90,7 @@ $(TARGET): $(OBJS)
 	@make -C $(LIB_PATH)
 	@make -C $(MLX_PATH)
 	$(HIDE)echo Linking $@
-	$(HIDE)$(CC) $(LDLIBS) $(LDLIBX) $(FRAMEWORKS) $(OBJS) -o $(TARGET)
+	$(HIDE)$(CC) $(LDLIBS) $(LDLIBX) $(FRAMEWORKS) $(SANITIZE) $(OBJS) -o $(TARGET)
 
 # Include dependencies
 -include $(DEPS)
